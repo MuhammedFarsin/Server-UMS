@@ -1,5 +1,6 @@
 const express = require("express");
 const userRoutes = require("./routes/userRoutes");
+const adminRoutes = require("./routes/adminRoute")
 const cors = require('cors');
 require("dotenv").config()
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/", userRoutes);
+app.use("/admin",adminRoutes)
 
 app.listen(port, () => {
   console.log("app listening on the port 3003");

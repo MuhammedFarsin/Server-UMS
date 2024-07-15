@@ -2,12 +2,7 @@ const User = require("../models/userModel");
 
 const updateProfile = async (req, res) => {
   try {
-
-    console.log(req.body);
-
     const { id } = req.params;
-
-
 
     const updatedFields = {};
     if (req.body.username) updatedFields.username = req.body.username;
@@ -20,8 +15,6 @@ const updateProfile = async (req, res) => {
       { $set: updatedFields },
       { new: true }
     );
-
-   
 
     if (!user) {
       return res.status(404).json({ message: "User not found" });
