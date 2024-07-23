@@ -51,8 +51,8 @@ const login = async (req, res) => {
             isAdmin: user.isAdmin, // Include isAdmin in the token payload
           },
         },
-        'verysecretkey',
-        { expiresIn: "15m" }
+          process.env.JWT_TOKEN_SECRET,
+        { expiresIn: "15h" }
       );
      
 
