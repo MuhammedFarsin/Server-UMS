@@ -2,6 +2,9 @@ const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
+
+const threeMonths = 3 * 30 * 24 * 60 * 60; 
+
 const signup = async (req, res) => {
   const { username, email, password, phone } = req.body;
   if (!username || !email || !password || !phone) {
@@ -52,7 +55,7 @@ const login = async (req, res) => {
           },
         },
           process.env.JWT_TOKEN_SECRET,
-        { expiresIn: "15h" }
+        { expiresIn: threeMonths }
       );
      
 
